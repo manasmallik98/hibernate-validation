@@ -1,0 +1,39 @@
+package com.manas.hibernate.validation;
+
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
+
+import com.manas.hibernate.dto.Employee;
+
+/**
+ * Hello world!
+ *
+ */
+public class App 
+{
+    public static void main( String[] args )
+    {
+    	EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("aaaa");
+    	EntityManager entityManager = entityManagerFactory.createEntityManager();
+    	entityManager.getTransaction().begin();
+        Employee employee = new Employee();
+        employee.setEmployeeId(4040);
+        employee.setEmployeeEmailId("mallikmanas0@gmail.com");
+        employee.setEmployeeMobileNo(8018315);
+        employee.setEmployeeName("manas");
+        entityManager.persist(employee);
+       
+        entityManager.getTransaction().commit();
+        entityManager.close();
+        entityManagerFactory.close();
+    }
+
+    // Unit Test
+//	public Employee setEmployee(Employee e, EntityManager em) {
+//		em.persist(e);
+//		em.getTransaction().commit();
+//		return e;
+		
+//	}
+}
